@@ -1,0 +1,107 @@
+新文章是 rake new_post['article name']
+
+rake generate 生成静态文件 
+rake watch 检测文件变化，实时生成新内容
+rake preview 在本机4000端口生成访问内容
+rake deploy 发布文件
+
+可以在generate后把网站放到本地的apache服务上先看一下效果，没问题再deploy
+脚本是：
+rake generate
+cp -r public/* /Library/WebServer/Documents/
+
+
+
+一些常用的宏：
+
+1. 显示摘要：
+<!--more-->
+
+2.显示代码片段：
+```  objc  (`是1左边的那个键）
+代码放这里
+```
+
+3. 插入gist代码：
+{% gist 1519172 %}
+
+
+4. 插入图片：
+{% img /images/mm.png %}
+
+图片放到source 的images目录下。
+
+5. 引用文字：
+{% blockquote %}
+这是一段引用的文字。
+第二行。
+{% endblockquote %}
+
+6. 设置category， （说明文档：http://octopress.org/docs/blogging/）
+# One category
+categories: Sass
+
+# Multiple categories example 1
+categories: [CSS3, Sass, Media Queries]
+
+
+7. 链接：
+<http://xujiaqi.info>
+
+[我的网站](http://xujiaqi.info)
+
+8. 标题
+# 一级标题
+## 二级标题
+###### 六级标题
+
+一级标题也可替换成：
+一级标题
+==============
+
+9. *斜体*
+    **粗体**
+    ***粗斜体***
+
+10. 可以在文章头部增加：
+     published: false 
+  来防止发布
+  或者 
+     author: Your Name 来改变作者
+
+
+
+
+
+一些定制信息：
+1. 定制头文件：
+/source/_includes/custom/head.html
+
+2. 定制About me: （介绍的文档：http://octopress.org/docs/theme/template/）
+source/_includes/custom/asides/about.html
+然后修改 _config.yml
+
+3. 修改_config.yml
+     把twitter完全注释掉，否则会连接twitter取js代码。然后被墙，造成访问一直loading
+
+4. 修改：sass/custom/_layout.scss
+    增加：$indented-lists: true; 使列表不再往左缩进
+
+
+5. 增加copyright：
+     修改source/_includes/post/copyright.html 文件。里面写上版权信息。
+     修改source/_layouts/post.html 文件，在合适位置加上：
+     <p class="meta">
+          {% include post/copyright.html %}
+     </p>
+
+6. 增加分享到新浪微博功能：
+     在_config.yml中增加一项： weibo_share: true
+     修改 source/_includes/post/sharing.html ，增加：
+```
+     ｛% if site.weibo_share %｝
+         ｛% include post/weibo.html %｝
+     ｛% endif %｝
+     增加source/_includes/post/weibo.html
+
+
