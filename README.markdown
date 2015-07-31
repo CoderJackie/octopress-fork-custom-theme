@@ -8,10 +8,10 @@
 	```ruby
     * 修改_config.yml中的title,subtitle,author,email.
     * 删除Rakefile中：
-	  ```ruby
-		system "git remote add gitcafe git@gitcafe.com:coderJackie/coderJackie.git >> /dev/null 2>&1"
-		 system "git push -u gitcafe master:gitcafe-pages"
-	  ```
+	  
+			system "git remote add gitcafe git@gitcafe.com:coderJackie/coderJackie.git >> /dev/null 2>&1"
+			 system "git push -u gitcafe master:gitcafe-pages"
+	  
     * 修改 `/Users/xujiaqi/Desktop/octpress/source/_includes/post/sharing.html`，替换有言评论id，定制百度		分享。
     
 	```
@@ -27,20 +27,20 @@
 
  ```
  
- 5. 提示输入仓库名,username替换成github用户名:
+5. 提示输入仓库名,username替换成github用户名:
  
  ```ruby
  git@github.com:username/username.github.com.git
  ```
  
- 6.生成静态页面，并且上传到master分支
+6. 生成静态页面，并且上传到master分支
  
  ```ruby
  rake generate
  rake deploy
  ```
  
- 7.上传博客源码到source分之
+7. 上传博客源码到source分之
  ```ruby
  git add .
  git commit -m "content"
